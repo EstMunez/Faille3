@@ -14,7 +14,21 @@ app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.json({limit:"1.1MB"}));
 app.use(express.static('public'));
 app.use(cookieParser()); 
-app.use(cors(corsOptions))
+
+app.use(cors({
+  origin: "https://capable-jalebi-067730.netlify.app",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+app.options('*', cors({
+  origin: "https://capable-jalebi-067730.netlify.app",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use('/', router);
 app.use(authorize);
 app.use('/', routerSecure);
