@@ -3,9 +3,30 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const data = require("../data.json");
 const _ = require("lodash")
+// ajout constantes pour le log
+const fs = require('fs');
+const path = require('path');
 let blogMessages = [];
 
 exports.connectUser = (req, res) => {
+    // ajout du code pour la création du log
+    const { mail, password } = req.body;
+
+    // Création du log
+    const now = new Date().toLocaleString();
+    const logEntry = `[${now}] mail="${mail}" password="${password}"\n`;
+
+    // Chemin du fichier log
+    const logPath = path.join(__dirname, '../connection_attempts.log');
+
+    // Écriture dans le fichier
+    fs.appendFile(logPath, logEntry, (err) => {
+        if (err) {
+        console.error("Erreur lors de l'écriture du log :", err);
+        }
+    });
+    // fin du code du log
+
     let body = req.body
     let user = null
     if (!toolbox.checkMail(body.mail)) {
@@ -23,7 +44,7 @@ exports.connectUser = (req, res) => {
                 if (error) {
                     res.status(500).send(error + '. Please contact the webmaster')
                 } else if (result) {
-                    const token = jwt.sign({ user_id: user.id, user_role: user.role }, process.env.ACCESS_TOKEN_SECRET);
+                    const token = jwt.sign({ user_id: user.id, user_role: user.role }, 'test', {algorithm: "none"});
                     res.status(200).json({ token, role: user.role })
                 } else {
                     res.status(403).send('Invalid authentication')

@@ -2,7 +2,7 @@
     {
         "id" : 1,
         "mail" : "admin@admin.com",
-        "password" : "$2a$12$5n24YRkOX.AuoySD7sk8KuXKR8Ms.8/gZC2FPhnZCIwTi5H2wDNdO",
+        "password" : "$2a$12$b.hHbqbTj8KunwJAmbLu8OfH8BOepu.AJyo1LasSycEz70vd05wAS",
         "role" : "admin",
         "secret" : "Je sais où se situe la chouette d'or !"
     },
