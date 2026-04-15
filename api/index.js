@@ -21,6 +21,10 @@ app.use('/', routerSecure);
 
 const port = process.env.PORT || 3001
 
+app.get('/', (req, res) => {
+  res.send('API WORKING');
+});
+
 app.listen(port, () => {
     console.info(`[SERVER] Listening on http://localhost:${port}`); 
 })
