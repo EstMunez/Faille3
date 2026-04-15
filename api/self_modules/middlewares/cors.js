@@ -1,4 +1,4 @@
-var whitelist = ['http://localhost:8080', 'http://localhost:3000', 'http://localhost:3001', 'https://capable-jalebi-067730.netlify.app']
+var whitelist = ['http://localhost:8080', 'http://localhost:3000', 'http://localhost:3001', 'https://capable-jalebi-067730.netlify.app','https://faille3.onrender.com']
 
 module.exports = corsOptions = {
   origin: function (origin, callback) {
