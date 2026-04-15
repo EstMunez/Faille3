@@ -20,7 +20,7 @@ class Index extends React.Component {
       secret: "",
       isAdmin: false,
       isLoading: true,
-      url: "https://faille3.onrender.com"
+      url: "http://localhost:3001"
     };
     this.toggleSecret = this.toggleSecret.bind(this)
   };
@@ -55,6 +55,13 @@ class Index extends React.Component {
     });
   }
 
+  // Ajout de la fonction de déconnexion
+  // On efface le cookie en le mmodifiant avec une date expirée et on reset le state
+  handleDisconnect = () => {
+    document.cookie = "Token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    this.setState({ redirected: true });
+  }
+
   promisedSetState = (newState) => new Promise(resolve => this.setState(newState, resolve));
 
   render() {
@@ -67,6 +74,8 @@ class Index extends React.Component {
           Ravi de te voir {this.state.mail},
           <ButtonUser handleClick={this.toggleSecret} />
           {this.state.showSecret ? <div>{this.state.secret}</div> : <div>***************</div>}
+          {/* Bouton de déconnexion */}
+          <button onClick={this.handleDisconnect}>Se déconnecter</button>
         </div>
       </>
     )

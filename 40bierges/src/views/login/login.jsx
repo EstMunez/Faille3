@@ -18,7 +18,7 @@ class Login extends React.Component {
       redirectedAdmin: false,
       mail: "",
       password: "",
-      url: "https://faille3.onrender.com"
+      url: "http://localhost:3001"
     };
     this.handleConnect = this.handleConnect.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -61,6 +61,7 @@ class Login extends React.Component {
         alert("error " + response.status)
       }
     }).catch(error => {
+      alert("La connexion a échoué")
       console.log(error)
     });
   }

@@ -19,7 +19,7 @@ class Blog extends React.Component {
       messages: [],
       token: "",
       isLoading: true,
-      url: "https://faille3.onrender.com"
+      url: "http://localhost:3001"
     };
     this.handleChange = this.handleChange.bind(this)
     this.handleSend = this.handleSend.bind(this)
