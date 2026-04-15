@@ -18,7 +18,7 @@ class Admin extends React.Component {
             token: "",
             userList: "",
             isLoading: true,
-            url: "http://localhost:3001"
+            url: "https://faille3.onrender.com"
         };
         this.toggleSecret = this.toggleSecret.bind(this)
     };
