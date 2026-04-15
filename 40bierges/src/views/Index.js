@@ -20,7 +20,7 @@ class Index extends React.Component {
       secret: "",
       isAdmin: false,
       isLoading: true,
-      url: "http://localhost:3001"
+      url: "https://faille3.onrender.com"
     };
     this.toggleSecret = this.toggleSecret.bind(this)
   };
